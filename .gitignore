@@ -1,0 +1,41 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.py[cod]
+
+# Python virtual environment
+venv/
+ENV/
+
+# Environment variables
+.env
+
+# Local development configuration
+instance/
+
+# Compiled Python files
+*.pyc
+
+# IDE files
+.idea/
+.vscode/
+
+# Log files
+*.log
+
+# Dependency directories
+lib/
+include/
+bin/
+share/
+
+# OS or editor temp files
+.DS_Store
+Thumbs.db
+
+# Compiled source
+*.com
+*.class
+*.dll
+ *.  JSX
+frontend/vite-project/node_modules/
+frontend/vite-project/.gitignore

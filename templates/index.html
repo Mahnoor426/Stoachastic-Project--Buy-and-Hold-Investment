@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte Carlo Simulations for ETF Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Monte Carlo Simulations for ETF Data</h1>
+        
+        <div>
+            <button class="btn" onclick="getETFData()">Get ETF Data</button>
+            <pre id="etf-data" class="result"></pre>
+        </div>
+
+        <div>
+            <button class="btn" onclick="getMonteCarloProperties()">Extracting details for simulation</button>
+            <pre id="sim-properties" class="result"></pre>
+        </div>
+        
+        <div>
+            <button class="btn" onclick="runSimulation()">Run Simulation</button>
+            <pre id="simulation-result" class="result"></pre>
+        </div>
+
+        <div>
+            <button class="btn" onclick="plotPriceTime('sde_gbm')">Plot Price-Time (SDE GBM)</button>
+            <button class="btn" onclick="plotPriceTime('analytic_exp_gbm')">Plot Price-Time (Analytic Exp GBM)</button>
+            <button class="btn" onclick="plotPriceTime('analytic')">Plot Price-Time (Analytic)</button>
+            <img id="price-time-plot" class="result" alt="Price-Time Plot">
+        </div>
+
+        <div>
+            <button class="btn" onclick="plotHistogram('sde_gbm')">Plot Histogram (SDE GBM)</button>
+            <button class="btn" onclick="plotHistogram('analytic_exp_gbm')">Plot Histogram (Analytic Exp GBM)</button>
+            <button class="btn" onclick="plotHistogram('analytic')">Plot Histogram (Analytic)</button>
+            <img id="histogram-plot" class="result" alt="Histogram Plot">
+        </div>
+
+        <div>
+            <button class="btn" onclick="plotKDE('sde_gbm')">Plot KDE (SDE GBM)</button>
+            <button class="btn" onclick="plotKDE('analytic_exp_gbm')">Plot KDE (Analytic Exp GBM)</button>
+            <button class="btn" onclick="plotKDE('analytic')">Plot KDE (Analytic)</button>
+            <img id="kde-plot" class="result" alt="KDE Plot">
+        </div>
+
+        <div>
+            <button class="btn" onclick="getStatistics()">Get Statistics</button>
+            <pre id="statistics" class="result"></pre>
+        </div>
+
+        <div>
+            <button class="btn" onclick="getPercentiles()">Get Percentiles</button>
+            <pre id="percentiles" class="result"></pre>
+        </div>
+    </div>
+
+    <script>
+        async function getETFData() {
+            const response = await fetch('/etf-data');
+            const data = await response.json();
+            document.getElementById('etf-data').textContent = JSON.stringify(data, null, 2);
+        }
+
+        async function getMonteCarloProperties() {
+            const response = await fetch('/monte-carlo-properties');
+            const properties = await response.json();
+            document.getElementById('sim-properties').textContent = JSON.stringify(properties, null, 2);
+        }
+
+        async function runSimulation() {
+            const response = await fetch('/run-simulation', { method: 'POST' });
+            const result = await response.json();
+            document.getElementById('simulation-result').textContent = JSON.stringify(result, null, 2);
+        }
+
+        async function plotPriceTime(model) {
+            const response = await fetch(`/plot-price-time?model=${model}`);
+            const blob = await response.blob();
+            document.getElementById('price-time-plot').src = URL.createObjectURL(blob);
+        }
+
+        async function plotHistogram(model) {
+            const response = await fetch(`/plot-histogram?model=${model}`);
+            const blob = await response.blob();
+            document.getElementById('histogram-plot').src = URL.createObjectURL(blob);
+        }
+
+        async function plotKDE(model) {
+            const response = await fetch(`/plot-kde?model=${model}`);
+            const blob = await response.blob();
+            document.getElementById('kde-plot').src = URL.createObjectURL(blob);
+        }
+
+        async function getStatistics() {
+            const response = await fetch('/statistics');
+            const statistics = await response.json();
+            document.getElementById('statistics').textContent = JSON.stringify(statistics, null, 2);
+        }
+
+        async function getPercentiles() {
+            const response = await fetch('/percentiles');
+            const percentiles = await response.json();
+            document.getElementById('percentiles').textContent = JSON.stringify(percentiles, null, 2);
+        }
+    </script>
+</body>
+</html>

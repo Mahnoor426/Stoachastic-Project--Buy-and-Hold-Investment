@@ -1,0 +1,118 @@
+import React, { useState } from 'react';
+import Sidebar from '../Components/Sidebar';
+import '../../src/index.css'; // Assuming you create a Home.css file for styles
+
+export default function Home() {
+  // const [etfData, setEtfData] = useState(null);
+  // const [simProperties, setSimProperties] = useState(null);
+  // const [simulationResult, setSimulationResult] = useState(null);
+  // const [priceTimePlot, setPriceTimePlot] = useState(null);
+  // const [histogramPlot, setHistogramPlot] = useState(null);
+  const [kdePlot, setKdePlot] = useState(null);
+  // const [statistics, setStatistics] = useState(null);
+  // const [percentiles, setPercentiles] = useState(null);
+
+  // const getETFData = async () => {
+  //   const response = await fetch('/api/etf-data');
+  //   const data = await response.json();
+  //   setEtfData(data);
+  // };
+  
+  // const getMonteCarloProperties = async () => {
+  //   const response = await fetch('/api/monte-carlo-properties');
+  //   const properties = await response.json();
+  //   setSimProperties(properties);
+  // };
+  
+  // const runSimulation = async () => {
+  //   const response = await fetch('/api/run-simulation', { method: 'POST' });
+  //   const result = await response.json();
+  //   setSimulationResult(result);
+  // };
+  
+  // const plotPriceTime = async (model) => {
+  //   const response = await fetch(`/api/plot-price-time?model=${model}`);
+  //   const blob = await response.blob();
+  //   setPriceTimePlot(URL.createObjectURL(blob));
+  // };
+  
+  // const plotHistogram = async (model) => {
+  //   const response = await fetch(`/api/plot-histogram?model=${model}`);
+  //   const blob = await response.blob();
+  //   setHistogramPlot(URL.createObjectURL(blob));
+  // };
+  
+  const plotKDE = async (model) => {
+    const response = await fetch(`/api/plot-kde?model=${model}`);
+    const blob = await response.blob();
+    setKdePlot(URL.createObjectURL(blob));
+  };
+  
+  // const getStatistics = async () => {
+  //   const response = await fetch('/api/statistics');
+  //   const statistics = await response.json();
+  //   setStatistics(statistics);
+  // };
+  
+  // const getPercentiles = async () => {
+  //   const response = await fetch('/api/percentiles');
+  //   const percentiles = await response.json();
+  //   setPercentiles(percentiles);
+  // };
+  
+
+  return (
+    <div className="page-container">
+      <Sidebar className="sidebar" />
+      <div className="main-content">
+        <h1 className="main-heading">Monte Carlo Simulations for ETF Data</h1>
+        
+        {/* <div className="containerddd">
+          <button className="btn" onClick={getETFData}>Get ETF Data</button>
+          <pre className="result">{etfData && JSON.stringify(etfData, null, 2)}</pre>
+        </div>
+
+        <div className="containerddd">
+          <button className="btn" onClick={getMonteCarloProperties}>Extracting details for simulation</button>
+          <pre className="result">{simProperties && JSON.stringify(simProperties, null, 2)}</pre>
+        </div>
+        
+        <div className="containerddd">
+          <button className="btn" onClick={runSimulation}>Run Simulation</button>
+          <pre className="result">{simulationResult && JSON.stringify(simulationResult, null, 2)}</pre>
+        </div>
+
+        <div className="containerddd">
+          <button className="btn" onClick={() => plotPriceTime('sde_gbm')}>Plot Price-Time (SDE GBM)</button>
+          <button className="btn" onClick={() => plotPriceTime('analytic_exp_gbm')}>Plot Price-Time (Analytic Exp GBM)</button>
+          <button className="btn" onClick={() => plotPriceTime('analytic')}>Plot Price-Time (Analytic)</button>
+          <img id="price-time-plot" className="result" alt="Price-Time Plot" src={priceTimePlot} />
+        </div>
+
+        <div className="containerddd">
+          <button className="btn" onClick={() => plotHistogram('sde_gbm')}>Plot Histogram (SDE GBM)</button>
+          <button className="btn" onClick={() => plotHistogram('analytic_exp_gbm')}>Plot Histogram (Analytic Exp GBM)</button>
+          <button className="btn" onClick={() => plotHistogram('analytic')}>Plot Histogram (Analytic)</button>
+          <img id="histogram-plot" className="result" alt="Histogram Plot" src={histogramPlot} />
+        </div> */}
+
+        <div className="containerddd">
+          <button className="btn" onClick={() => plotKDE('sde_gbm')}>Plot KDE (SDE GBM)</button>
+          <button className="btn" onClick={() => plotKDE('analytic_exp_gbm')}>Plot KDE (Analytic Exp GBM)</button>
+          <button className="btn" onClick={() => plotKDE('analytic')}>Plot KDE (Analytic)</button>
+          <img id="kde-plot" className="result" alt="KDE Plot" src={kdePlot} />
+        </div>
+{/* 
+        <div className="containerddd">
+          <button className="btn" onClick={getStatistics}>Get Statistics</button>
+          <pre className="result">{statistics && JSON.stringify(statistics, null, 2)}</pre>
+        </div>
+
+        <div className="containerddd">
+          <button className="btn" onClick={getPercentiles}>Get Percentiles</button>
+          <pre className="result">{percentiles && JSON.stringify(percentiles, null, 2)}</pre>
+        </div> */}
+      </div>
+    </div>
+  );
+}

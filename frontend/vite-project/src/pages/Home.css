@@ -1,0 +1,369 @@
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+.parentHomepage_container{
+  display: flex;
+  flex-direction: row;
+}
+
+.homepage_container{
+  width: 100%;
+  height: 100%;
+}
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #f8f8f8; /* Light grey background color */
+  /* padding: 20px 10px; */
+}
+
+.hero-content {
+  width: 90%;
+  margin-bottom: 36px;
+}
+
+.tagline {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4a9195; /* Coral color for tagline */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tagline span {
+  margin-left: 10px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333; /* Dark grey color for main heading */
+  margin-bottom: 24px;
+}
+.lineBreak {
+  display: block;
+  border-radius: 15px;
+  width: 50%;
+  text-align: center;
+  margin: 10px auto;
+  background-color: #4a9195;
+  color: #f8f8f8;
+  padding: 5px 8px;
+}
+p {
+  font-size: 1.2rem;
+  color: #555; /* Medium grey color for subheading */
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.hero-image {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.snip1401 {
+  font-family: "Playfair Display", Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 230px;
+  max-width: 315px;
+  max-height: 220px;
+  width: 100%;
+  color: #000000;
+  text-align: right;
+  font-size: 16px;
+  background-color: #000000;
+}
+.snip1401 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1401 img {
+  max-width: 100%;
+  backface-visibility: hidden;
+}
+.snip1401 figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  opacity: 1;
+  padding: 30px 0 30px 10px;
+  background-color: #ffffff;
+  width: 40%;
+  -webkit-transform: translateX(150%);
+  transform: translateX(150%);
+}
+.snip1401 figcaption:before {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 100%;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 120px 120px 120px 0;
+  border-color: transparent #ffffff transparent transparent;
+}
+.snip1401:after {
+  position: absolute;
+  bottom: 50%;
+  right: 40%;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 120px 120px 0 120px;
+  border-color: rgba(255, 255, 255, 0.5) transparent transparent transparent;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1401 h3,
+.snip1401 p {
+  line-height: 1.5em;
+  -webkit-transform: translateX(-30px);
+  transform: translateX(-30px);
+  margin: 0;
+}
+.snip1401 h3 {
+  margin: 0 0 5px;
+  line-height: 1.1em;
+  font-weight: 900;
+  font-size: 1.4em;
+  opacity: 0.75;
+}
+.snip1401 p {
+  font-size: 0.8em;
+}
+.snip1401 i {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px 30px;
+  font-size: 44px;
+  color: #ffffff;
+  opacity: 0;
+}
+.snip1401 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.snip1401:hover img,
+.snip1401.hover img {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+}
+.snip1401:hover:after,
+.snip1401.hover:after,
+.snip1401:hover figcaption,
+.snip1401.hover figcaption,
+.snip1401:hover i,
+.snip1401.hover i {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+
+/*MONTE CARLO SECTION*/
+
+.monteCarloSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.monte-carlo-simulation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light grey background */
+  align-items: center;
+}
+
+.monteCarlo_h1 {
+  text-align: center;
+  width: 60%;
+  display: block;
+}
+.highlight {
+  color: #4a9195;
+}
+
+.container_name{
+    font-weight: 500;
+    color: #4a9195;
+    border: 1px solid #4a9195;
+    padding: 5px 15px;
+    border-radius: 12px;
+    margin: 36px 0;
+
+}
+
+.card {
+  background: #b0e5e7;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.2s;
+  height: 260px;
+  transition: 15ms;
+  transition: transform 0.2s, background-color 0.5s, color 0.5s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #7ba0a1;
+}
+.stepNo{
+    font-size: 1.5rem;
+    color: #333; /* Dark grey color for headings */
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 1px solid #333;
+    border-radius: 50%;
+    width: 20%;
+    text-align: center;
+    margin: 0 auto;
+    transition: transform 0.2s, border 0.5s, color 0.5s;
+}
+
+.card:hover .stepNo{
+    color: #f0f0f0;
+    border: 1px solid #f0f0f0;
+}
+.card h2 {
+  font-size: 1.5rem;
+  color: #333; /* Dark grey color for headings */
+  margin-bottom: 10px;
+  background-color: transparent;
+  transition: color 0.5s;
+}
+
+.card:hover h2 {
+    color: #f0f0f0; /* Dark grey color for headings */
+  }
+
+.card p {
+  font-size: 1rem;
+  color: #555; /* Medium grey color for text */
+  line-height: 1.5;
+  background-color: transparent;
+  transition: color 0.5s;
+}
+.card:hover p {
+    color: #f0f0f0; /* Medium grey color for text */
+}
+
+.para_MonteCarlo{
+  width: 80%;
+}
+
+
+/* MODEL SECTION */
+.models_section{
+  width: 100%;
+  height:fit-content;
+  padding-top: 36px;
+  padding-bottom: 64px;
+  background-color: #4a9195;
+  margin: 0;
+  border-radius: 24px;
+
+}
+
+.ModelCard-container {
+display: flex;
+justify-content: space-around;
+align-items: center;
+flex-wrap: wrap;
+padding: 20px;
+gap: 20px;
+background-color: transparent;
+}
+.models_explanation{
+  background-color: transparent;
+  color: #eeecec;
+  text-align: justify;
+  padding: 0px 32px;
+}
+.ModelCard {
+width: 300px;
+height: 200px;
+perspective: 1000px;
+cursor: pointer;
+}
+
+.model_heading{
+  background-color: transparent;
+}
+
+.model_description{
+  background-color: transparent;
+  color: #fff;
+}
+
+.ModelCard-inner {
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+transition: transform 0.6s;
+transform-style: preserve-3d;
+}
+
+.ModelCard:hover .ModelCard-inner {
+transform: rotateY(180deg);
+}
+
+.ModelCard-front,
+.ModelCard-back {
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 15px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+padding: 20px;
+}
+
+.ModelCard-front {
+background: linear-gradient(135deg, #E95629, #e79278);
+color: #fff;
+}
+
+.ModelCard-back {
+background: linear-gradient(135deg, #3A4E4F, #869d9e);
+color: #fff;
+transform: rotateY(180deg);
+}
